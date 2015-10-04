@@ -1,49 +1,91 @@
-﻿Public Class Form1
+﻿
 
-    Private Function CreateMatrix(x As Integer, y As Integer) As Integer(,)
-        Dim matrixA(x, y) As Integer
-        Dim rndNum As New Random(Guid.NewGuid().GetHashCode())
-        Dim arrayNo As Integer
-
-        For i As Integer = 0 To x
-            For j As Integer = 0 To y
-                matrixA(i, j) = rndNum.Next(10)
-                arrayNo += 1
-            Next
-        Next
-
-        Return matrixA
-    End Function
-
-    Private Function ShowMatrix(matrix(,) As Integer) As String
-
-        Dim str As String = ""
-
-        For i As Integer = 0 To UBound(matrix, 1)
-            For j As Integer = 0 To UBound(matrix, 2)
-
-                If j = UBound(matrix, 2) Then
-                    str = str + matrix(i, j).ToString
-                Else
-                    str = str + matrix(i, j).ToString + ", "
-                End If
-            Next
-
-            str += vbCrLf
-
-        Next
-
-        Return str
-    End Function
+Public Class Form1
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
     End Sub
 
 
-    Private Sub CreateMatrix_Click(sender As Object, e As EventArgs) Handles CreateMatrixA.Click
-        ShowDataA.Text = ShowMatrix(CreateMatrix(2, 2))
-        ShowDataB.Text = ShowMatrix(CreateMatrix(2, 2))
+    Private Sub GoMatrix_Click(sender As Object, e As EventArgs) Handles GoMatrix.Click
+
+        Dim errMsgX As String
+        Dim errMsgY As String
+
+        errMsgX = myCheckData.chkMatrixSize(InputX.Text)
+        errMsgY = myCheckData.chkMatrixSize(InputY.Text)
+
+        If String.IsNullOrEmpty(errMsgX) And String.IsNullOrEmpty(errMsgY) Then
+
+            InputXError.Clear()
+            InputYError.Clear()
+
+            Dim m As New myMatrix()
+            Dim x As Integer
+            Dim y As Integer
+            x = InputX.Text
+            y = InputY.Text
+
+            Dim matrixA(,) As Integer
+            Dim matrixB(,) As Integer
+            Dim matrixR(,) As Integer
+
+            matrixA = m.CreateMatrix(x, y)
+            matrixB = m.CreateMatrix(y, x)
+
+            matrixR = m.Multiply2DArrays(matrixA, matrixB)
+
+
+            ShowDataA.Text = m.ShowMatrix(matrixA)
+            ShowDataB.Text = m.ShowMatrix(matrixB)
+            ShowResult.Text = m.ShowMatrix(matrixR)
+
+        Else
+            If String.IsNullOrEmpty(errMsgX) Then
+                InputXError.Clear()
+            Else
+                InputYError.SetError(InputX, errMsgX)
+            End If
+
+            If String.IsNullOrEmpty(errMsgY) Then
+                InputYError.Clear()
+            Else
+                InputYError.SetError(InputY, errMsgY)
+            End If
+
+        End If
+
+
+
 
     End Sub
+
+    Private Sub InputX_Validating(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles InputX.Validating
+
+        Dim errMsg As String
+        errMsg = myCheckData.chkMatrixSize(InputX.Text)
+
+        If String.IsNullOrEmpty(errMsg) Then
+            InputXError.Clear()
+        Else
+            InputXError.SetError(InputX, errMsg)
+        End If
+
+        
+
+    End Sub
+
+    Private Sub InputY_Validating(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles InputY.Validating
+
+        Dim errMsg As String
+        errMsg = myCheckData.chkMatrixSize(InputY.Text)
+
+        If String.IsNullOrEmpty(errMsg) Then
+            InputYError.Clear()
+        Else
+            InputYError.SetError(InputY, errMsg)
+        End If
+
+    End Sub
+
 End Class
