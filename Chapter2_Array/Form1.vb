@@ -8,8 +8,6 @@
         For i As Integer = 0 To x
             For j As Integer = 0 To y
                 matrixA(i, j) = rndNum.Next(10)
-                'matrixA(i, j) = arrayNo
-
                 arrayNo += 1
             Next
         Next
