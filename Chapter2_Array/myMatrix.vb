@@ -52,7 +52,7 @@ Public Class myMatrix
         Return str
     End Function
 
-    Public Shared Function chkMatrixSize(input As String) As String
+    Public Shared Function ChkMatrixSize(input As String) As String
         Dim msg As String
 
         'Dim regex As Regex = New Regex("^[1-9]+$")
