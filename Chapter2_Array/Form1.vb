@@ -12,8 +12,8 @@ Public Class Form1
         Dim errMsgX As String
         Dim errMsgY As String
 
-        errMsgX = myCheckData.chkMatrixSize(InputX.Text)
-        errMsgY = myCheckData.chkMatrixSize(InputY.Text)
+        errMsgX = myMatrix.chkMatrixSize(InputX.Text)
+        errMsgY = myMatrix.chkMatrixSize(InputY.Text)
 
         If String.IsNullOrEmpty(errMsgX) And String.IsNullOrEmpty(errMsgY) Then
 
@@ -63,7 +63,7 @@ Public Class Form1
     Private Sub InputX_Validating(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles InputX.Validating
 
         Dim errMsg As String
-        errMsg = myCheckData.chkMatrixSize(InputX.Text)
+        errMsg = myMatrix.chkMatrixSize(InputX.Text)
 
         If String.IsNullOrEmpty(errMsg) Then
             InputXError.Clear()

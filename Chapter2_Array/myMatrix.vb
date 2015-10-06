@@ -1,4 +1,6 @@
-﻿Public Class myMatrix
+﻿Imports System.Text.RegularExpressions
+
+Public Class myMatrix
     Public Function Multiply2DArrays(matrixA As Integer(,), matrixB As Integer(,)) As Integer(,)
         Dim matrixR(UBound(matrixA, 1), UBound(matrixB, 2)) As Integer
 
@@ -48,5 +50,19 @@
         Next
 
         Return str
+    End Function
+
+    Public Shared Function chkMatrixSize(input As String) As String
+        Dim msg As String
+
+        'Dim regex As Regex = New Regex("^[1-9]+$")
+        Dim regex As Regex = New Regex("^[1-9]$")
+        If regex.IsMatch(input) Then
+            msg = String.Empty
+        Else
+            msg = "only 1~9 may be entered here!!"
+        End If
+
+        Return msg
     End Function
 End Class
