@@ -15,6 +15,7 @@ Public Class Form1
         errMsgX = myMatrix.ChkMatrixSize(InputX.Text)
         errMsgY = myMatrix.ChkMatrixSize(InputY.Text)
 
+        ' check input
         If String.IsNullOrEmpty(errMsgX) And String.IsNullOrEmpty(errMsgY) Then
 
             InputXError.Clear()
@@ -30,17 +31,21 @@ Public Class Form1
             Dim matrixB(,) As Integer
             Dim matrixR(,) As Integer
 
+            ' generate matrix
             matrixA = m.CreateMatrix(x, y)
             matrixB = m.CreateMatrix(y, x)
 
+            ' multiply matrix
             matrixR = m.Multiply2DArrays(matrixA, matrixB)
 
-
+            ' show data
             ShowDataA.Text = m.ShowMatrix(matrixA)
             ShowDataB.Text = m.ShowMatrix(matrixB)
             ShowResult.Text = m.ShowMatrix(matrixR)
 
         Else
+
+            ' return error msg.
             If String.IsNullOrEmpty(errMsgX) Then
                 InputXError.Clear()
             Else
@@ -62,6 +67,7 @@ Public Class Form1
 
     Private Sub InputX_Validating(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles InputX.Validating
 
+        ' check inputX
         Dim errMsg As String
         errMsg = myMatrix.ChkMatrixSize(InputX.Text)
 
@@ -77,6 +83,7 @@ Public Class Form1
 
     Private Sub InputY_Validating(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles InputY.Validating
 
+        'check inputY
         Dim errMsg As String
         errMsg = myMatrix.ChkMatrixSize(InputY.Text)
 
