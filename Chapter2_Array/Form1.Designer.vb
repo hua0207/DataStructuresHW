@@ -23,53 +23,26 @@ Partial Class Form1
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Me.ShowDataA = New System.Windows.Forms.TextBox()
         Me.GoMatrix = New System.Windows.Forms.Button()
-        Me.ShowDataB = New System.Windows.Forms.TextBox()
-        Me.ShowResult = New System.Windows.Forms.TextBox()
         Me.InputX = New System.Windows.Forms.TextBox()
         Me.InputY = New System.Windows.Forms.TextBox()
         Me.InputXError = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.InputYError = New System.Windows.Forms.ErrorProvider(Me.components)
+        Me.ShowDataA = New System.Windows.Forms.Label()
+        Me.ShowDataB = New System.Windows.Forms.Label()
+        Me.ShowResult = New System.Windows.Forms.Label()
         CType(Me.InputXError, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.InputYError, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'ShowDataA
-        '
-        Me.ShowDataA.Location = New System.Drawing.Point(12, 66)
-        Me.ShowDataA.Multiline = True
-        Me.ShowDataA.Name = "ShowDataA"
-        Me.ShowDataA.ReadOnly = True
-        Me.ShowDataA.Size = New System.Drawing.Size(135, 155)
-        Me.ShowDataA.TabIndex = 3
-        '
         'GoMatrix
         '
-        Me.GoMatrix.Location = New System.Drawing.Point(376, 12)
+        Me.GoMatrix.Location = New System.Drawing.Point(528, 12)
         Me.GoMatrix.Name = "GoMatrix"
         Me.GoMatrix.Size = New System.Drawing.Size(188, 36)
         Me.GoMatrix.TabIndex = 2
         Me.GoMatrix.Text = "Create and Multiply Matrix "
         Me.GoMatrix.UseVisualStyleBackColor = True
-        '
-        'ShowDataB
-        '
-        Me.ShowDataB.Location = New System.Drawing.Point(185, 66)
-        Me.ShowDataB.Multiline = True
-        Me.ShowDataB.Name = "ShowDataB"
-        Me.ShowDataB.ReadOnly = True
-        Me.ShowDataB.Size = New System.Drawing.Size(135, 155)
-        Me.ShowDataB.TabIndex = 4
-        '
-        'ShowResult
-        '
-        Me.ShowResult.Location = New System.Drawing.Point(376, 66)
-        Me.ShowResult.Multiline = True
-        Me.ShowResult.Name = "ShowResult"
-        Me.ShowResult.ReadOnly = True
-        Me.ShowResult.Size = New System.Drawing.Size(135, 155)
-        Me.ShowResult.TabIndex = 5
         '
         'InputX
         '
@@ -80,7 +53,7 @@ Partial Class Form1
         '
         'InputY
         '
-        Me.InputY.Location = New System.Drawing.Point(185, 12)
+        Me.InputY.Location = New System.Drawing.Point(274, 12)
         Me.InputY.Name = "InputY"
         Me.InputY.Size = New System.Drawing.Size(100, 22)
         Me.InputY.TabIndex = 1
@@ -93,17 +66,44 @@ Partial Class Form1
         '
         Me.InputYError.ContainerControl = Me
         '
+        'ShowDataA
+        '
+        Me.ShowDataA.AutoSize = True
+        Me.ShowDataA.Location = New System.Drawing.Point(12, 66)
+        Me.ShowDataA.Name = "ShowDataA"
+        Me.ShowDataA.Size = New System.Drawing.Size(70, 12)
+        Me.ShowDataA.TabIndex = 6
+        Me.ShowDataA.Text = "show matrixA"
+        '
+        'ShowDataB
+        '
+        Me.ShowDataB.AutoSize = True
+        Me.ShowDataB.Location = New System.Drawing.Point(272, 66)
+        Me.ShowDataB.Name = "ShowDataB"
+        Me.ShowDataB.Size = New System.Drawing.Size(70, 12)
+        Me.ShowDataB.TabIndex = 7
+        Me.ShowDataB.Text = "show matrixB"
+        '
+        'ShowResult
+        '
+        Me.ShowResult.AutoSize = True
+        Me.ShowResult.Location = New System.Drawing.Point(526, 66)
+        Me.ShowResult.Name = "ShowResult"
+        Me.ShowResult.Size = New System.Drawing.Size(57, 12)
+        Me.ShowResult.TabIndex = 8
+        Me.ShowResult.Text = "show result"
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(784, 362)
-        Me.Controls.Add(Me.InputY)
-        Me.Controls.Add(Me.InputX)
         Me.Controls.Add(Me.ShowResult)
         Me.Controls.Add(Me.ShowDataB)
-        Me.Controls.Add(Me.GoMatrix)
         Me.Controls.Add(Me.ShowDataA)
+        Me.Controls.Add(Me.InputY)
+        Me.Controls.Add(Me.InputX)
+        Me.Controls.Add(Me.GoMatrix)
         Me.Name = "Form1"
         Me.Text = "Form1"
         CType(Me.InputXError, System.ComponentModel.ISupportInitialize).EndInit()
@@ -112,13 +112,13 @@ Partial Class Form1
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents ShowDataA As System.Windows.Forms.TextBox
     Friend WithEvents GoMatrix As System.Windows.Forms.Button
-    Friend WithEvents ShowDataB As System.Windows.Forms.TextBox
-    Friend WithEvents ShowResult As System.Windows.Forms.TextBox
     Friend WithEvents InputX As System.Windows.Forms.TextBox
     Friend WithEvents InputY As System.Windows.Forms.TextBox
     Friend WithEvents InputXError As System.Windows.Forms.ErrorProvider
     Friend WithEvents InputYError As System.Windows.Forms.ErrorProvider
+    Friend WithEvents ShowDataA As System.Windows.Forms.Label
+    Friend WithEvents ShowDataB As System.Windows.Forms.Label
+    Friend WithEvents ShowResult As System.Windows.Forms.Label
 
 End Class

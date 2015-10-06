@@ -39,9 +39,9 @@ Public Class myMatrix
             For j As Integer = 0 To UBound(matrix, 2)
 
                 If j = UBound(matrix, 2) Then
-                    str = str + matrix(i, j).ToString
+                    str = str + Right("     " + matrix(i, j).ToString, 5)
                 Else
-                    str = str + matrix(i, j).ToString + ", "
+                    str = str + Right("     " + matrix(i, j).ToString, 5) + ", "
                 End If
             Next
 
