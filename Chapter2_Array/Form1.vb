@@ -78,7 +78,7 @@ Public Class Form1
     Private Sub InputY_Validating(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles InputY.Validating
 
         Dim errMsg As String
-        errMsg = myCheckData.chkMatrixSize(InputY.Text)
+        errMsg = myMatrix.chkMatrixSize(InputY.Text)
 
         If String.IsNullOrEmpty(errMsg) Then
             InputYError.Clear()
