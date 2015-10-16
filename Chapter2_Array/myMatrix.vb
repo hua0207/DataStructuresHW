@@ -22,8 +22,8 @@ Public Class myMatrix
         Dim matrixA(x, y) As Integer
         Dim rndNum As New Random(Guid.NewGuid().GetHashCode())
 
-        For i As Integer = 0 To x
-            For j As Integer = 0 To y
+        For i As Integer = 0 To x - 1
+            For j As Integer = 0 To y - 1
                 matrixA(i, j) = rndNum.Next(10)
             Next
         Next
@@ -35,10 +35,10 @@ Public Class myMatrix
 
         Dim str As String = ""
 
-        For i As Integer = 0 To UBound(matrix, 1)
-            For j As Integer = 0 To UBound(matrix, 2)
+        For i As Integer = 0 To UBound(matrix, 1) - 1
+            For j As Integer = 0 To UBound(matrix, 2) - 1
 
-                If j = UBound(matrix, 2) Then
+                If j = UBound(matrix, 2) - 1 Then
                     str = str + Right("     " + matrix(i, j).ToString, 5)
                 Else
                     str = str + Right("     " + matrix(i, j).ToString, 5) + ", "
